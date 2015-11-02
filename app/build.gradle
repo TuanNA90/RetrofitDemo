@@ -41,4 +41,5 @@ dependencies {
     /*lombok*/
     provided 'org.projectlombok:lombok:1.12.6'
     apt "org.projectlombok:lombok:1.12.6"
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
