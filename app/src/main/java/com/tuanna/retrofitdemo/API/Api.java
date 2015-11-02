@@ -15,6 +15,7 @@ public interface Api {
     /**
      * Request method and URL specified in the annotation
      * Callback for the parsed response is the last parameter
+     *
      * @param username
      * @return
      */
