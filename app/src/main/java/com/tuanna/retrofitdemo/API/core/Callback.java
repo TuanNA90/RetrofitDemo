@@ -34,8 +34,6 @@ public abstract class Callback<T> implements retrofit.Callback<T> {
      */
     @Override
     public void onFailure(Throwable t) {
-        onFailure(ApiError.builder()
-                .message(t.getMessage())
-                .build());
+        onFailure(ApiError.builder().message(t.getMessage()).build());
     }
 }
