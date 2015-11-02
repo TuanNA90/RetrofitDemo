@@ -14,7 +14,7 @@ public class ApiConfig {
     String baseUrl;
 
     public ApiConfig(Builder builder) {
-        //this.sessionStore = builder.sessionStore;
+        this.sessionStore = builder.sessionStore;
         this.mContext = builder.mContext;
         this.baseUrl = builder.baseUrl;
     }

@@ -1,7 +1,7 @@
 package com.tuanna.retrofitdemo.API.core;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.Builder;
 
 /**
  * Project RetrofitDemo.

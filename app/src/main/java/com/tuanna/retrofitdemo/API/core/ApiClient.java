@@ -29,6 +29,12 @@ public class ApiClient {
     private static final int TIMEOUT_CONNECTION = 10000;
 
     private static ApiClient sApiClient;
+
+    private Retrofit mRetrofit;
+    /**
+     * OkHttpClient:by OkHttp
+     */
+    private OkHttpClient mOkHttpClient;
     /**
      * Api service
      */
@@ -81,11 +87,11 @@ public class ApiClient {
         mSessionStore = apiConfig.sessionStore;
 
         // Add the interceptor to OkHttpClient
-        OkHttpClient mOkHttpClient = new OkHttpClient();
+        mOkHttpClient = new OkHttpClient();
         mOkHttpClient.setConnectTimeout(TIMEOUT_CONNECTION, TimeUnit.MILLISECONDS);
         mOkHttpClient.interceptors().add(mInterceptor);
 
-        Retrofit mRetrofit = new Retrofit.Builder()
+        mRetrofit = new Retrofit.Builder()
                 .baseUrl(apiConfig.baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(mOkHttpClient)
