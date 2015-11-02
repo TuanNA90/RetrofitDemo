@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         ApiConfig apiConfig = ApiConfig.builder(getApplicationContext())
                 .baseUrl("https://api.github.com")
                 .build();
-        ApiClient.getInstance().init(apiConfig);
+        ApiClient.getInstance().create(apiConfig);
         ApiAuth.getUser("tuanna-asiantech", new Callback<User>() {
             @Override
             public void onResponse(Response<User> userResponse) {
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(ApiError error) {
-                Log.d("xxx","Error: "+ error.getMessage());
+                Log.d("xxx", "Error: " + error.getMessage());
             }
         });
     }

@@ -50,10 +50,8 @@ public class ApiClient {
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request newRequest = null;
-
-            Map<String, String> headers = mSessionStore.header(mContext);
-
-            if (headers.size() > 0) {
+            if (mSessionStore != null && mSessionStore.header(mContext).size() > 0) {
+                Map<String, String> headers = mSessionStore.header(mContext);
                 for (Map.Entry<String, String> entry : headers.entrySet()) {
                     newRequest = chain.request().newBuilder()
                             .addHeader(entry.getKey(), entry.getValue()).build();
@@ -82,7 +80,7 @@ public class ApiClient {
         return getInstance().mApi;
     }
 
-    public void init(ApiConfig apiConfig) {
+    public void create(ApiConfig apiConfig) {
         mContext = apiConfig.mContext;
         mSessionStore = apiConfig.sessionStore;
 
