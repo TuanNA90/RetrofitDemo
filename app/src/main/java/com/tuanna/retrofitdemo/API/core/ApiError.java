@@ -10,6 +10,6 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class Error {
+public class ApiError {
     private String message;
 }

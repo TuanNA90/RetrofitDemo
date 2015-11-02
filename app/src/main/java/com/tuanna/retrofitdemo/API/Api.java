@@ -3,7 +3,6 @@ package com.tuanna.retrofitdemo.API;
 import com.tuanna.retrofitdemo.model.User;
 
 import retrofit.Call;
-import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
 
@@ -21,5 +20,5 @@ public interface Api {
      * @return
      */
     @GET("/users/{username}")
-    Call<User> getUser(@Path("username") String username , Callback callback);
+    Call<User> getUser(@Path("username") String username);
 }

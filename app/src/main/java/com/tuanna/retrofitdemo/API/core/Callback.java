@@ -14,7 +14,7 @@ public abstract class Callback<T> implements retrofit.Callback<T> {
 
     public abstract void onResponse(Response<T> t);
 
-    public abstract void onFailure(Error error);
+    public abstract void onFailure(ApiError error);
 
     /**
      * Successful HTTP response.
@@ -34,8 +34,7 @@ public abstract class Callback<T> implements retrofit.Callback<T> {
      */
     @Override
     public void onFailure(Throwable t) {
-        onFailure(Error.builder()
-                .stateCode(0)
+        onFailure(ApiError.builder()
                 .message(t.getMessage())
                 .build());
     }
