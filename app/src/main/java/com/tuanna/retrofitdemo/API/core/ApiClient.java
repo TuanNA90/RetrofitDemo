@@ -21,7 +21,11 @@ import retrofit.Retrofit;
  * Created by tuanna.
  */
 public class ApiClient {
+
     private static final String HEADER = "User-Agent";
+
+    private static ApiClient sApiClient;
+
     private Retrofit mRetrofit;
     /**
      * OkHttpClient:by OkHttp
@@ -44,6 +48,22 @@ public class ApiClient {
             return chain.proceed(newRequest);
         }
     };
+
+    /**
+     * get singleton instance
+     *
+     * @return
+     */
+    public static synchronized ApiClient getInstance() {
+        if (sApiClient == null) {
+            sApiClient = new ApiClient();
+        }
+        return sApiClient;
+    }
+
+    public static Api Builder() {
+        return getInstance().mApi;
+    }
 
     public void init(String baseUrl) {
         // Add the interceptor to OkHttpClient

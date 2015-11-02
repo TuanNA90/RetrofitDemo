@@ -11,6 +11,5 @@ import lombok.Data;
 @Data
 @Builder
 public class Error {
-    private int stateCode;
     private String message;
 }
